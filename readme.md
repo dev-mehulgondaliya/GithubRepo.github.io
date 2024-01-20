@@ -10,7 +10,7 @@
 
 <h2>Report</h2>
 
-<h3><a href="https://dev-mehulgondaliya.github.io/GithubRepo.github.io/" target="_blank" style="text-decoration: none;">Demo Link</a></h3>
+### [Demo Link](https://dev-mehulgondaliya.github.io/GithubRepo.github.io/) 
 
 <p>
     I have completed my assignment, and all the criteria are satisfied.
