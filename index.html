@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <meta name="description" content="Github repositry search and see.">
+    <meta name="theme-color" content="#000">
+
+    <!-- bootstap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font-awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- custom css -->
+    <!-- <link rel="stylesheet" href="./css/styles.css"> -->
+    <link rel="stylesheet" href="./css/mifystyle.css">
+</head>
+
+<body>
+    <main class="main-container">
+        <header class="w-100">
+            <div class="glass-effect d-flex flex-column gap-5 justify-content-center align-items-center">
+                <h1 class="text-center">Search a github repositry </h1>
+                <div class="row mb-3">
+                    <div class="col-12 d-flex justify-content-end ">
+                        <input type="text" class=" px-2 w-100 w-sm-auto form-control" id="userSearch"
+                            placeholder="Find a user...">
+                        <button class="flex-shrink-0 btn  px-3 d-flex align-items-center gap-2" id="userSearchbtn"><i
+                                class="fa-solid fa-magnifying-glass"></i>Search</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container p-3 border mb-sm-5 border-1 rounded " id="userRepo">
+            <!-- profile details -->
+            <div class="d-flex align-items-center  flex-column flex-sm-row gap-3 gap-sm-5">
+                <div class="border border-1 rounded-circle overflow-hidden p-1 d-flex justify-content-center align-items-center flex-shrink-0" id="profileImage">
+                    <img id="user_profile_img" src=""  loading="lazy" alt="Description" class="img-fluid rounded-circle " alt="">
+                </div>
+
+                <div class="d-flex align-items-center align-items-sm-start flex-column p-sm-1 w-100">
+                    <h1 id="user_name">
+                        <!-- data from API -->
+                    </h1>
+                    <p id="user_bio" >
+                        <!-- data from API -->
+                    </p>
+                    <p class="d-flex gap-2 align-items-center justify-content-start w-100" id="user_location">
+                        <!-- data from api -->
+                    </p>
+                    <div id="twitter"  style="width: 100%;">
+                        <div class="d-flex gap-1  ">
+                            <i class="fa-brands fa-x-twitter"></i>
+                            <a href="https://twitter.com/" id="twitter_link" target="_blank">
+                                <span id="user_twitter">
+                                    <!-- data from API -->
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="github" style="width: 100%;">
+                        <div class="d-flex gap-2 align-items-center">
+                            <i class="fa-brands fa-github"></i>
+                            <a href="https://github.com/" id="user_github_link" target="_blank">
+                                <span id="user_github">
+                                    <!-- data from API -->
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- number of list -->
+            <div class="row mt-3" id="filter">
+                <div class="col-12 d-flex justify-content-end gap-1">
+                    <div class="dropdown-center">
+                        <button class="btn btn-secondary dropdown-toggle d-flex gap-1 align-items-center" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-filter"></i><span id="sortingvalue">Newer</span>
+                        </button>
+                        <ul class="dropdown-menu sorting">
+                            <li><a class="dropdown-item" href="#" data-value="desc">Newer</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="asc">Older</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-center">
+                        <button class="btn btn-secondary dropdown-toggle d-flex gap-1 align-items-center" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-list"></i><span id="number_of_repo">10</span>
+                        </button>
+                        <ul class="dropdown-menu numberoflist">
+                            <li><a class="dropdown-item" href="#" data-value="10">10</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="50">50</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="100">100</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- repo list -->
+
+            <div class="row my-sm-2">
+                <div class="spinner-border text-dark my-5 mx-auto" id="spinner_loader" role="status">
+                </div>
+            </div>
+            <div class="row my-3 mx-auto" id="repo_showcase">
+                <!-- data fetch from API -->
+            </div>
+
+            <!-- pagination -->
+            <div class="row mx-auto w-100 w-sm-50">
+                <div class="col-12 d-flex justify-content-center ">
+                    <div class="btn-group" role="group" aria-label="Basic outlined example" id="pagination-container">
+                        <!-- Pagination buttons will be dynamically added here -->
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+
+
+    <!-- boostarp bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- jQuery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- custom js -->
+    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/minifymain.js"></script>
+</body>
+
+</html>
