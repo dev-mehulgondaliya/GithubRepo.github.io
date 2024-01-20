@@ -2,7 +2,7 @@
 
 $(document).ready(async function () {
 
-    let repoName = 'dev-mehulgondaliya';
+    let repoName = 'johnpapa';
     let currentPage = 1;
     let totalpages;
     let sort = 'desc';
@@ -29,7 +29,7 @@ $(document).ready(async function () {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log('Fetched data with Fetch API:', data);
+                // console.log('Fetched data with Fetch API:', data);
 
                 $('#user_profile_img').attr('src', `${data.avatar_url}`);
                 $('#user_name').text(`${data.name}`)
@@ -75,11 +75,11 @@ $(document).ready(async function () {
         $('#filter,#pagination-container').hide()
 
         try {
-            const response = await fetch(`https://api.github.com/users/${repoName}/repos?page=${page}&per_page=${perpage}&sort=created&direction=${sort}`);
+            const response = await fetch(`https://api.github.com/users/${repoName}/repos?page=${page}&per_page=${perpage}&sort=updated&direction=${sort}`);
 
             if (response.ok) {
                 const data = await response.json();
-                console.log('Fetched data with Fetch API:', data);
+                // console.log('Fetched data with Fetch API:', data);
                 if (data) {
 
 
@@ -170,13 +170,11 @@ $(document).ready(async function () {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log('Fetched data with Fetch API:', data);
+                // console.log('Fetched data with Fetch API:', data);
 
                 const totalCount = data.length;
-                console.log(totalCount)
                 totalpages = Math.ceil(totalCount / Math.round(itemsPerPage));
 
-                console.log(totalpages, Math.round(itemsPerPage))
                 generatePaginationButtons(totalpages);
             } else {
                 throw new Error('Network response was not ok');
@@ -189,7 +187,6 @@ $(document).ready(async function () {
     function generatePaginationButtons(totalPages) {
         const paginationContainer = $('#pagination-container');
         paginationContainer.empty();
-        console.log(totalPages)
         const pagesToShow = 5;
         const startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
         const endPage = Math.min(totalPages, startPage + pagesToShow - 1);
