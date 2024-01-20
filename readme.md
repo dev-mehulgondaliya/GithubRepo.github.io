@@ -8,6 +8,16 @@
     Pagination has to be <code>server</code>-side. By default, show <code>10</code> repositories per page. The user should be able to choose a maximum of <code>100</code> repositories per page. When the API calls are in progress, consider showing loaders.
 </p>
 
+<h6>Notes:</h6>
+
+- The assignment has to be done in HTML, CSS and Javascript. You can use Bootstrap and Jquery but no other library/design system is allowed.
+
+- You're free to make assumptions, please make sure they are mentioned in the README.
+
+- Design is for representation purposes only, you are free to modify it, but all the functionalities as shown in the design (and as listed in requirements) should be present.
+
+- Make sure all edge cases are thought through and handled.
+
 <h2>Report</h2>
 
 ### [Demo Link](https://dev-mehulgondaliya.github.io/GithubRepo.github.io/) 
