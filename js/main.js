@@ -13,6 +13,7 @@ $(document).ready(async function () {
         repoName = $('#userSearch').val()
         fetchData(repoName);
         fetchRepoData(repoName, itemsPerPage, 1, sort);
+        fetchRepoDataCount()
         $('#userSearch').val("")
     });
 
@@ -172,6 +173,7 @@ $(document).ready(async function () {
                 console.log('Fetched data with Fetch API:', data);
 
                 const totalCount = data.length;
+                console.log(totalCount)
                 totalpages = Math.ceil(totalCount / Math.round(itemsPerPage));
 
                 console.log(totalpages, Math.round(itemsPerPage))

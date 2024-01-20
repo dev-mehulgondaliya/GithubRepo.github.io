@@ -4,15 +4,13 @@
     The below image represents a <code>topic</code> of a particular repository, one repository could have multiple <code>topics</code>.
 </p>
 
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7743fc64-964a-4fb2-a231-d646d2d88e0a/Screenshot_2021-05-17_at_3.11.10_AM.png" alt="Repository Topics" class="img-fluid">
-
-<h2>Pagination</h2>
-
 <p>
     Pagination has to be <code>server</code>-side. By default, show <code>10</code> repositories per page. The user should be able to choose a maximum of <code>100</code> repositories per page. When the API calls are in progress, consider showing loaders.
 </p>
 
 <h2>Report</h2>
+
+<h3><a href="https://dev-mehulgondaliya.github.io/GithubRepo.github.io/" target="_blank" style="text-decoration: none;">Demo Link</a></h3>
 
 <p>
     I have completed my assignment, and all the criteria are satisfied.
